@@ -1,8 +1,9 @@
 # JournoBlogg
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+![journoBolg](https://github.com/dajaispa/JournoBlogg/assets/125565341/55492b86-1efe-4367-a151-29f58d76c95e)
 
-![Alt Text](https://drive.google.com/file/d/1eiolYGfZTjIj5YdVdPD_LWL7YMSdg9x9/view?usp=sharing)
+
 
 ## Development server
 
