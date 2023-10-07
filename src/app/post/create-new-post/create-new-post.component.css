@@ -1,0 +1,155 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .drop-zone {
+    border: 2px dashed #ddd;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    position: relative;
+  }
+  
+  .text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #353535;
+    margin-bottom: 20px;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+
+  input[type=text] {
+    font-weight: 800;
+    font-size:22px;
+    font-family:  sans-serif;
+    color:black;
+  }
+  
+  .form-control.header{
+    font-weight: 600;
+    font-size:18px;
+    color:rgb(46, 46, 46);
+  }
+
+  .form-control.tahs{
+    font-weight: 600;
+    font-size:16px;
+  }
+
+  .content-area, input[type=text]{
+    border-top: #aaa;
+    border-right:#aaa;
+    border-left:#aaa;
+    outline: none;
+    padding: 12px 20px;
+  }
+
+  .form-control::placeholder { 
+    font-weight: 100;
+    font-size:16px;
+    font-family: Roboto, sans-serif;
+    opacity: 1; 
+   }
+  
+  .drop-zone::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+  }
+  
+  .drop-zone img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .create-new{
+    width:1000px;
+  }
+
+  .drop-zone-image {
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .add-button{
+    width: 70px;
+    height: 70px
+  }
+
+  .add-icon{
+    width:100%;
+    height:100%;
+    font-size: 40px;
+  }
+
+  .dropzone{
+    height: 150px;
+    min-width:100px;
+    display:table;
+    background-color:#aaa;
+    width:300px;
+    border:dashed 1px #aaa;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .text-wrapper{
+    display:table-cell;
+    vertical-align:middle;
+  }
+
+  .centered{
+    text-align: center;
+  }
+
+  .browse-button{
+    color:blue;
+    cursor: pointer;
+  }
+
+  .publishButton, .publishButtonDisabled{
+      padding: 12px;
+      border-radius: 40px;
+      width:fit-content;
+      font-size: 20px;
+      height:fit-content;
+  }
+
+  .publishButton{
+    background-color: #1a8917;
+    color:white;
+    cursor: pointer;
+  }
+
+  .publishButtonDisabled {
+    background-color: #1a8917;
+    color:white;
+    opacity: 0.5;  
+  }
+
+  .addSection{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+  }

@@ -1,0 +1,33 @@
+<!-- Comment input form -->
+  <mat-card class="comment-form">
+    <mat-card-content>
+      <textarea class="form-control mb-2" placeholder="Add your thoughts" rows="2" [(ngModel)]="newComment"
+       oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'></textarea>
+      <div class="d-flex justify-content-end mt-3">
+        <button mat-flat-button class="me-2" color="primary" (click)="onAdd()">Add</button>
+        <button mat-stroked-button color="primary"(click)="onCancel()">Cancel</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+<!-- Comment list -->
+<div class="comment-list mt-4">
+  <div *ngIf="isCommentsEmpty">
+      No Comments added for this post.
+  </div>
+  <ng-container *ngIf="!isCommentsEmpty">
+  <div class="comment-item d-flex align-items-start" *ngFor="let comment of comments">
+    <div class="comment-avatar me-3">
+      <img  [src]="comment.profileImg" alt="Profile Picture">
+    </div>
+    <div class="comment-content">
+      <div class="d-flex justify-content-between">
+        <h3 class="comment-author mb-0">{{comment.name}}</h3>
+        <span class="comment-date">{{comment.date}}</span>
+      </div>
+      <p class="comment-text mb-0">{{comment.text}}</p>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  </ng-container>
+</div>

@@ -1,0 +1,40 @@
+<mat-dialog-content class="profile-edit-dialog-content">
+
+    <!-- Profile image upload and remove section -->
+    <div class="profile-edit-image">
+      <img *ngIf="imageUrl" [src]="imageUrl" class="profile-image" alt="Profile Image">
+      <img *ngIf="!imageUrl" class="profile-image" [src]="profile.profileImg" alt="Profile Image">
+      <div class="profile-image-actions">
+        <button mat-icon-button class="upload-button" (click)="onUpload()">
+          <mat-icon>cloud_upload</mat-icon>
+        </button>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+        <button mat-icon-button class="remove-button" (click)="onRemove()" [disabled]="profile.imgSrc == 'assets/img/user.png'">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+      <mat-progress-bar *ngIf="isUpLoading" mode="indeterminate"></mat-progress-bar>
+    </div>
+  
+    <!-- Profile name and bio section -->
+    <form class="profile-edit-form">
+      <mat-form-field class="profile-edit-field">
+        <input matInput placeholder="Name" name="name"[(ngModel)]="profile.name">
+      </mat-form-field>
+      <mat-form-field class="profile-edit-field">
+        <textarea matInput placeholder="Bio" name="bio" [(ngModel)]="profile.bio"></textarea>
+      </mat-form-field>
+    </form>
+  
+    <!-- Profile edit dialog actions -->
+    <div class="profile-edit-actions">
+      <button mat-raised-button class="save-button" (click)="onSave()">
+        Save
+      </button>
+      <button mat-flat-button class="cancel-button" (click)="onCancel()">
+        Cancel
+      </button>
+    </div>
+  
+  </mat-dialog-content>
+  

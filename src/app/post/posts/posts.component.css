@@ -1,0 +1,23 @@
+.right-section {
+    width: 20%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.posts {
+    width: 80%;
+    display: block;
+   }
+
+   .posts-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+

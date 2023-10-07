@@ -1,0 +1,74 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="80%">
+    <div class="mb-2">
+      <input class="mt-3 mb-3 w-100" placeholder="Add Title" 
+            type="text" [formControl]="title" required>
+    </div>
+    <div class="mb-2">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Tags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter Tags">
+          <mat-chip-row *ngFor="let tag of tags"
+                        (removed)="remove(tag)"
+                        [editable]="true"
+                        (edited)="edit(tag, $event)"
+                        [aria-description]="'press enter to edit ' + tag">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input placeholder="New tag... eg #Technology"
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+    </div>
+    <form class="create-new" [formGroup]="form">
+      <div formArrayName="fields">
+          <div *ngFor="let field of formControls; index as i" [formGroupName]="i">
+              <input class="form-control form-control-lg mt-3 mb-3 w-100 header" placeholder="Add Header" 
+                    *ngIf="field.value?.hasOwnProperty('header')" type="text" formControlName="header">
+              <textarea class="form-control content-area mt-3 w-100" 
+                  placeholder="Add Content"
+                  *ngIf="field.value?.hasOwnProperty('content')" 
+                  oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'
+                  formControlName="content">
+              </textarea>
+              <div *ngIf="field.value?.hasOwnProperty('image')" class="drop-zone mt-3" 
+                  (drop)="onDrop($event, i)" (dragover)="onDragOver($event)">
+                  <div class="text" *ngIf="!field.get('image').value">
+                      <mat-icon style="line-height: 30px;">image</mat-icon>Drag an image here or
+                      <a [attr.for]="'fileInput' + i" class="browse-button">Browse</a>
+                      <input [id]="'fileInput' + i" type="file" (change)="onFileSelect($event, i)" style="display:none;" accept="image/*" />
+                      <!-- <a (click)="selectFile.click()" class="browse-button">browse</a> 
+                      to select a file
+                      <input #selectFile type="file" (change)="onFileSelect($event, i)" accept="image/*" /> -->
+                  </div>
+                  <img *ngIf="field.get('image').value" [src]="field.get('image').value" class="drop-zone-image" />
+              </div>
+        </div>
+      </div>
+      <mat-progress-bar *ngIf="isUpLoading" mode="indeterminate"></mat-progress-bar>
+    </form>
+    <mat-divider class="mt-4"></mat-divider>
+    <div class="addSection">
+      <button [matTooltip]="'Add New Section'" mat-icon-button class="add-button" 
+              [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon class="add-icon">add_circle_outline</mat-icon>
+      </button>
+      <button mat-icon-button class="publishButton me-3" (click)="onPublish()" 
+              [ngClass]="form.valid && this.isContentAdded && title.value ? 'publishButton' : 'publishButtonDisabled'"
+              [matTooltip]="form.valid && this.isContentAdded && title.value? '' : 'Please Enter Title & Content'"> Publish
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="addField('image')">Upload Image</button>
+      <button mat-menu-item (click)="addField('header')">Add Header</button>
+      <button mat-menu-item (click)="addField('content')">Add Content</button>
+    </mat-menu>
+</div>
+</div>

@@ -1,0 +1,100 @@
+  .post-card {
+    width: 90%;
+    margin: 20px;
+  }
+
+  
+  .post-content {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+  }
+
+  .post-description{
+    width: 70%;
+    font-size: 16px;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;;
+  }
+
+  .post-title{
+    font-weight: 800;
+    font-size:22px;
+    font-family:  sans-serif;
+    color:black;
+  }
+
+  .profile-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-right: 10px;
+  }
+
+  .post-author{
+    color:#757575;
+    font-size:14px;
+  }
+  
+  .post-image {
+    margin-left: auto;
+    margin-right:20px;
+    width: 20%;
+    height: 120px;
+  }
+  
+  
+  /* .post-content {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+  }
+
+  .post-image {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    text-align: right;
+  } */
+  .post-image img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mr-auto{
+    margin-right: auto;
+  }
+
+  .actions{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .actions > div{
+    display:flex;
+    margin-right: 15px;
+  }
+
+  .remove-button {
+    font-size: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .offcanvas {
+    z-index: 9999;
+  }
+
+  .offcanvas-backdrop {
+    z-index: 2000;
+  }
+
+  .offcanvas-header{
+    margin-top: 100px;
+  }
+
+  .offcanvas-title{
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 5px;
+  }

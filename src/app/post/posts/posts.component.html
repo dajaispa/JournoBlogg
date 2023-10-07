@@ -1,0 +1,12 @@
+<div class="posts-container w-100">
+    <div class="posts w-100 me-4">
+        <mat-tab-group dynamicHeight fitInkBarToContent class="w-100">
+            <ng-container *ngFor="let tab of tabs; let i = index;">
+            <mat-tab [label]="tab" class="w-100">
+                <app-post-card [postsData]="posts[i]" (dataChanged)="onRefresh()" class="w-100"></app-post-card>
+            </mat-tab>
+        </ng-container>
+        </mat-tab-group>
+    </div>
+    <app-right-section class="right-section"></app-right-section>
+</div>

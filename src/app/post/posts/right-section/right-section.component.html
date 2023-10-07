@@ -1,0 +1,43 @@
+  <div class="tags-container mb-3">
+    <h3 class="subHeading">Tags</h3>
+    <mat-chip-set>
+      <mat-chip class="matChip" *ngFor="let tag of tags">{{ tag }}</mat-chip>
+    </mat-chip-set>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="trending-posts- mt-5">
+    <h3 class="subHeading">Trending Posts</h3>
+      <ng-container *ngFor="let post of posts">
+        <div class="trendind-post-content" (click)="onViewPost(post)">
+        <div class="trending-header">
+            <div class="trending-post__author-info">
+              <img class="profile-img" [src]="post.authorProfileImg">
+              <div class="trending-post__author-name">{{ post.authorName }} </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          {{ post.title | shorten:10 }}
+        </div>
+      </div>
+      </ng-container>
+  </div>
+
+  <!-- <mat-divider></mat-divider>
+  <div class="folow-section mt-5">
+    <h3 class="subHeading">Who to Follow</h3>
+      <ng-container *ngFor="let person of people">
+        <div class="trending-header">
+            <div class="trending-post__author-info">
+              <img class="profile-img" [src]="person.profileImg">
+              <div class="trending-post__author-name">{{ person.authorName }}</div>
+            </div>
+        </div>
+        <div class="mb-2">{{ person.bio | shorten:10 }}</div>
+        <button mat-button class="follow-button mb-4">
+          <mat-icon>person_add</mat-icon>
+          Follow</button>
+      </ng-container>
+  </div> -->
+  

@@ -1,0 +1,65 @@
+    .tags-container {
+        width: 100%;
+    }
+  
+  .trending-posts-container {
+    width: 100%;
+    margin-bottom: 15%;
+  }
+
+  .trending-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .profile-img {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-right: 10px;
+  }
+  
+  .trending-post__author-info {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .trending-post__author-name {
+    font-weight: bold;
+  }
+  
+  .follow-section {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .person-info {
+    margin-left: 20px;
+  }
+  
+  .person-name {
+    font-weight: bold;
+  }
+ 
+  .follow-button{
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 8px;
+    text-align: center;
+    background-color: transparent;
+  }
+
+  .trendind-post-content{
+    cursor: pointer;
+  }
+
+  .subHeading{
+    font-weight: bolder;
+    color: #717578;
+    font-family: sans-serif;
+    font-size:larger;
+  }
+  .matChip{
+    z-index:0;
+  }

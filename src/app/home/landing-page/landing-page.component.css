@@ -1,0 +1,23 @@
+ 
+
+
+      .main-content {
+        display: flex;
+        flex: 1;
+      }
+
+      @media (max-width: 767px) {
+        .posts-container {
+          width: calc(100% - 56px);
+        }
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

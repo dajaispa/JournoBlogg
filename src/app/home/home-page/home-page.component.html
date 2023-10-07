@@ -1,0 +1,12 @@
+ <div class="main-content">
+        <mat-drawer-container class="w-100 h-100" autosize hasBackdrop="false">
+            <mat-drawer class="side-nav" #drawer mode="side" opened>
+                <app-side-nav class="h=100" (sideNav)="onToggleSideNav()"></app-side-nav>
+            </mat-drawer>
+            <app-posts *ngIf="isPostLoaded" class="w-100 mt-2" 
+            [tabs]="homePageTabs" [posts]="[posts,posts]" 
+            [bookmarkPosts]="bookmarkPosts" (dataChanged)="onRefresh()"></app-posts>
+        </mat-drawer-container>
+  </div>
+ 
+   

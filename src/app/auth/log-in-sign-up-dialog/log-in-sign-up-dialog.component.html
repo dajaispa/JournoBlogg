@@ -1,0 +1,64 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="80%" class="mt-5 pt-5">
+    <mat-card class="w-100">
+      <mat-card-content class="content">
+        <h2 class="title mb-3">
+          <span *ngIf="isRegisteredUser">Welcome Back!</span>
+          <span *ngIf="!isRegisteredUser">Join Journoblogg</span>
+        </h2>
+        <div *ngIf="isLoading" style="text-align: center;">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <div class="w-100 mt-5">
+          <mat-form-field class="w-50" appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="john123@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="w-50" appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+      
+          <div class="w-100">
+          <button mat-flat-button color="primary" class="auth-btn w-50 mb-3" (click)="onSubmit()">
+            <span *ngIf="isRegisteredUser">Log In</span>
+            <span *ngIf="!isRegisteredUser">Join</span>
+          </button>
+          </div>
+          <div class="w-100">
+            <span *ngIf="isRegisteredUser"><a (click)="onForgotPassword()">Forgot Password?</a></span>
+          </div>
+          <div class="w-100 mt-5">
+          <button mat-button class="google-btn w-50" (click)="signInWithGoogle()">
+            <img src="assets/img/google.svg" alt="Post Image">
+            <span *ngIf="isRegisteredUser">Sign in with Google</span>
+            <span *ngIf="!isRegisteredUser">Sign up with Google</span>
+          </button>
+          </div>
+      
+        <div class="auth-actions">
+          <span *ngIf="isRegisteredUser">Don't have an account? <a (click)="isRegisteredUser = !isRegisteredUser">Create one</a></span>
+          <span *ngIf="!isRegisteredUser">Already have an account? <a (click)="isRegisteredUser = !isRegisteredUser">Log In</a></span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+  
+
+  

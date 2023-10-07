@@ -1,0 +1,65 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" class="w-100" *ngIf="!postsLoaded">
+      No Posts Found!
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" class="w-100" *ngIf="postsLoaded ">
+  <mat-card *ngFor="let post of posts; let i = index;" class="post-card">
+    <mat-card-header class="ms-2">
+      <mat-card-title (click)="onViewPost(post)" style="cursor:pointer;">
+        <img class="profile-img me-1" [src]="post.authorProfileImg">
+        <span class="post-author">{{ post.authorName }} . </span>
+        <span class ="post-author" style="line-height: 50px;">{{ postContent[i] | readingTime }} min read</span>
+      </mat-card-title>
+      <mat-card-subtitle (click)="onViewPost(post)" style="cursor:pointer;"><h2 class="post-title">{{ post.title }}</h2></mat-card-subtitle>
+      <button [matTooltip]="deleteToolTip" mat-icon-button class="remove-button" (click)="onRemove(post)" *ngIf="isProfilePost">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content class="post-content ms-2 mt-3"  (click)="onViewPost(post)">
+      <div class="post-description">
+        <p>{{ postContent[i] | shorten:50 }}</p>
+        <div class="mt-3">
+          <mat-chip-listbox>
+            <mat-chip *ngFor="let tag of post.tags">{{ tag }}</mat-chip>
+          </mat-chip-listbox>
+        </div>
+      </div>
+      <div class="post-image">
+        <img [src]="postImages[i]" alt="Post Image">
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+        <button mat-icon-button (click)="onLike(post)">
+          <mat-icon>favorite_border</mat-icon>
+          <!-- <mat-icon>favorite</mat-icon> -->
+          </button>
+          <span class="me-2">{{ post.likes }}</span>
+          <button mat-icon-button (click)="onComment(post)">
+                 <mat-icon> chat_bubble_outline</mat-icon>
+                 <!-- <mat-icon> chat_bubble</mat-icon>  -->
+          </button>
+          <span class="me-2">{{ post.commentsCount }}</span>
+          <div>
+            <button mat-icon-button (click)="onBookMark(post)">
+            <mat-icon>bookmark_border</mat-icon>
+          </button>
+            <!-- <mat-icon>bookmark</mat-icon> -->
+         </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="false" data-bs-backdrop="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" #offcanvas>
+  <!-- offcanvas content ... -->
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Comments</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <mat-progress-bar *ngIf="!commentsLoaded" mode="indeterminate"></mat-progress-bar>
+    <app-comments *ngIf="commentsLoaded" [comments]="comments" [postID]="currentCommentPostID" (dataChanged)="onRefreshComments()"></app-comments>
+  </div>
+</div>
+
+
+
+

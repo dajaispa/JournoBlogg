@@ -1,0 +1,44 @@
+<mat-toolbar class="header">
+    <a class="navbar-brand" (click)="onHome()">
+        <img src="assets/img/logo.png" alt="Post Image">
+    </a>
+    <div class="searchBar">
+        <input id="searchQueryInput" type="text" name="searchQueryInput" 
+        placeholder="Search" [(ngModel)]="searchValue" (keyup.enter)="onSearch(searchValue)"/>
+        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <mat-icon class="search-icon" (click)="onSearch(searchValue)">search</mat-icon>
+        </button>
+      </div>
+    <span class="spacer"></span>
+    <ng-container *ngIf="!isAuthenticated">
+      <button mat-icon-button class="logInButton me-3" (click)="onLogInSignUp('logIn')" color="primary">
+        Log In
+    </button>
+    <button mat-icon-button class="signUpButton me-5" (click)="onLogInSignUp('signUp')">
+        Sign Up
+    </button>
+    </ng-container>
+    <ng-container *ngIf="isAuthenticated">
+      <button class="createNew" mat-icon-button (click)="onCreateNewPost()">
+        <mat-icon >edit_square</mat-icon>
+        <span class="header-text">New Post</span>
+      </button>
+      <!-- <button mat-icon-button>
+          <mat-icon class="header-button" matBadge="15" matBadgeClass="custom-badge">notifications</mat-icon>
+      </button> -->
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon class="header-button">account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onViewProfile()">
+          <mat-icon>perm_identity</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>	
+    </ng-container>
+</mat-toolbar>
+

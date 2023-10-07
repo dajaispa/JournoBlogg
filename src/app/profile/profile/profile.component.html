@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="80%">
+        <div fxLayout="column" fxLayoutAlign="center center" class="mt-5">
+          <div class="profile-card mt-5">
+            <div class="profile-card-header">
+              <div class="profile-card-avatar-container">
+                <img class="profile-card-avatar" [src]="imgSrc" alt="User Avatar">
+              </div>
+              <button mat-stroked-button color="primary" class="profile-card-edit-button" (click)="onEdit()">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+            </div>
+            <div class="profile-card-content">
+              <h1 class="profile-card-title">{{title}}</h1>
+              <p class="profile-card-bio">{{bio}}</p>
+              <!-- <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <mat-icon>people_alt</mat-icon>
+                  <span class="profile-card-count">500 Followers</span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <span class="profile-card-count">100 Following</span>
+                </div>
+              </div> -->
+            </div>
+          </div>          
+          </div>
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-bar class="w-100" *ngIf="!isProfilePostsLoaded && !isBookMarkedPostsLoaded" mode="indeterminate"></mat-progress-bar>
+            <mat-tab-group fitInkBarToContent  *ngIf="isProfilePostsLoaded && isBookMarkedPostsLoaded">
+              <mat-tab label="My Posts">
+                  <app-post-card [postsData]="profilePosts" [isProfilePost]="true" [myPosts]="true" (dataChanged)="refreshData()"></app-post-card>
+                </mat-tab>
+              <mat-tab label="My Bookmarks">
+                  <app-post-card [postsData]="bookmarkPosts" [isProfilePost]="true" [myBookMarks]="true" (dataChanged)="refreshData()"></app-post-card>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  

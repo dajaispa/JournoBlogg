@@ -1,0 +1,74 @@
+.dialog-content {
+    text-align: center;
+    padding: 30px;
+    overflow:hidden;
+  }
+
+  .google-btn {
+    background-color: white;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .google-btn mat-icon {
+    color: #d3d3d3;
+    margin-right: 10px;
+  }
+  
+  .auth-btn {
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  .auth-actions {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .auth-actions a {
+    color: #07c;
+  }
+
+  .title{
+    font-family: Geometry Soft Pro, sans-serif;
+    font-size:30px;
+    font-weight: 700;
+  }
+
+  a{
+    cursor: pointer;
+  }
+  .google-btn {
+    /* display: flex; */
+    align-items: center;
+  }
+  
+  .google-btn img {
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  .my-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .header, .content {
+    text-align: center;
+  }
+  
+  .my-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  

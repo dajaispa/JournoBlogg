@@ -1,0 +1,19 @@
+<mat-nav-list>
+    <a mat-list-item [routerLink]="['/home']">
+      <mat-icon class="nav-icon">home</mat-icon>
+      <span [hidden] = "hideSideNav" class="nav-text">Home</span>
+    </a>
+    <a mat-list-item [routerLink]="['/followers']">
+      <mat-icon class="nav-icon">people</mat-icon>
+      <span  [hidden] = "hideSideNav" class="nav-text">Followers</span>
+    </a> 
+    <a mat-list-item [routerLink]="['/stats']">
+      <mat-icon class="nav-icon">trending_up</mat-icon>
+      <span  [hidden] = "hideSideNav" class="nav-text">Stats</span>
+    </a>
+    <a mat-list-item (click)="onToggleSideNav()">
+      <mat-icon [hidden] = "hideSideNav" class="nav-icon">arrow_back_ios</mat-icon>
+      <mat-icon [hidden] = "!hideSideNav" class="nav-icon">arrow_forward_ios</mat-icon>
+      <span  [hidden] = "hideSideNav" class="nav-text">Hide</span>
+    </a>
+</mat-nav-list>
